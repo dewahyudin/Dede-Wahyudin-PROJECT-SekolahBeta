@@ -2,18 +2,14 @@
   <div>
     <header-component />
     
-    <main class="main">
-      <h1>Selamat datang di Toko Online Kami!</h1>
-      <p>Temukan produk-produk terbaik untuk Anda.</p>
-      
-      <div class="product-list">
-        <div v-for="(product, index) in products" :key="index" class="product-card">
-          <img :src="product.image" :alt="product.name" />
-          <h3>{{ product.name }}</h3>
-          <p class="description">{{ product.description }}</p>
-          <p class="price">{{ product.price }}</p>
-        </div>
-      </div>
+    <main class="main" style="background-image: url('https://wallpapercave.com/wp/wp3376127.jpg');">
+      <section class="store-info">
+        <h1>Selamat datang di KampusMart</h1>
+        <p>Temukan berbagai produk terbaik kami.</p>
+        <router-link to="/produk">
+          <button class="btn">Lihat Produk</button>
+        </router-link>
+      </section>
     </main>
     
     <footer-component />
@@ -29,61 +25,51 @@ export default {
     HeaderComponent,
     FooterComponent
   },
-  data() {
-    return {
-      products: [
-        {
-          name: 'Produk 1',
-          description: 'Deskripsi Produk 1',
-          price: 'Rp 100.000',
-          image: 'link_gambar_produk_1'
-        },
-        {
-          name: 'Produk 2',
-          description: 'Deskripsi Produk 2',
-          price: 'Rp 150.000',
-          image: 'link_gambar_produk_2'
-        },
-        // Tambahkan produk lainnya di sini
-      ]
-    }
-  }
 }
 </script>
 
 <style scoped>
+/* Gaya CSS untuk halaman beranda */
 .main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.product-list {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.product-card {
-  border: 1px solid #ddd;
-  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  color: white;
   text-align: center;
 }
 
-.product-card img {
-  max-width: 100%;
-  height: auto;
+.store-info {
+  background-color: rgba(0, 0, 0, 0.5); /* Latar belakang transparan untuk teks */
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.description {
-  margin-top: 10px;
-  font-size: 14px;
+.store-info h1 {
+  font-size: 36px;
+  margin: 0;
 }
 
-.price {
-  margin-top: 10px;
-  font-weight: bold;
-  color: #ff9900;
+.store-info p {
+  font-size: 18px;
+  margin: 0;
+}
+
+.btn {
+  background-color: #ff9900;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ff6600;
 }
 </style>
